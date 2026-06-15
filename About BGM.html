@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About BGM — Besa Gordon Media</title>
+<meta name="description" content="Besa Gordon Media is a storytelling and community engagement agency helping organizations build trust, visibility, and genuine community connection through authentic storytelling." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script>
+  (function () {
+    try {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce) document.documentElement.classList.add('reveals-armed');
+    } catch (e) {}
+  })();
+</script>
+<style>
+  /* ---- About page specifics ---- */
+  .abp-hero { padding-bottom: clamp(48px, 6vw, 80px); }
+  .abp-hero .c-body .eyebrow { margin-bottom: 4px; }
+  .abp-hero .mission { font-size: clamp(30px, 4vw, 52px) !important; max-width: 18ch !important; margin: 16px 0 22px !important; }
+  .abp-hero .c-lead { font-size: 19px; color: var(--ink-soft); max-width: 50ch; line-height: 1.55; }
+  .abp-crumb { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; color: var(--muted); text-decoration: none; margin-bottom: 22px; transition: color .2s ease; }
+  .abp-crumb:hover { color: var(--clay); }
+
+  /* ---- Story prose ---- */
+  .abp-story { background: var(--cream); border-top: 1px solid var(--line); }
+  .abp-prose { display: grid; grid-template-columns: 200px 1fr; gap: clamp(28px, 5vw, 72px); max-width: 1000px; margin-inline: auto; }
+  .abp-prose + .abp-prose { margin-top: clamp(40px, 5vw, 64px); }
+  .abp-kicker { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin: 6px 0 0; }
+  .abp-body p { font-size: 18px; line-height: 1.62; color: var(--ink-soft); margin: 0 0 18px; max-width: 60ch; }
+  .abp-body p strong { color: var(--ink); font-weight: 600; }
+  .abp-body p:last-child { margin-bottom: 0; }
+
+  /* ---- Pull quote ---- */
+  .abp-quote-band { background: var(--ink); color: var(--cream); text-align: center; }
+  .abp-quote { font-family: var(--serif); font-weight: 500; font-style: italic; font-size: clamp(26px, 3.6vw, 44px); line-height: 1.22; letter-spacing: -0.01em; max-width: 20ch; margin: 0 auto; }
+  .abp-quote .accent { color: var(--clay-tint); }
+  .abp-quote-by { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(0.7 0.012 72); margin-top: 26px; }
+
+  /* ---- Capabilities ---- */
+  .abp-caps { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .abp-caps .caps-head { max-width: 1000px; margin: 0 auto 30px; }
+  .abp-caps h2 { font-size: clamp(26px, 3vw, 38px); margin: 14px 0 0; }
+  .abp-chip-row { display: flex; flex-wrap: wrap; gap: 12px; max-width: 1000px; margin-inline: auto; }
+  .abp-chip { font-family: var(--sans); font-size: 15px; color: var(--ink); background: var(--cream); border: 1px solid var(--line); border-radius: 100px; padding: 10px 18px; display: inline-flex; align-items: center; gap: 9px; }
+  .abp-chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--clay); flex-shrink: 0; }
+
+  /* ---- Press ---- */
+  .abp-press { background: var(--cream); }
+  .abp-press .press-inner { max-width: 1000px; margin-inline: auto; }
+  .abp-press .press-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 22px; text-align: center; }
+  .abp-press .press-row { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 26px 44px; }
+  .abp-press .press-row img { height: 32px; width: auto; display: block; opacity: 0.78; transition: opacity .2s ease; filter: saturate(0.15); }
+  .abp-press .press-row img:hover { opacity: 1; filter: none; }
+  .abp-press .press-row img[alt="Seattle Mariners"] { height: 46px; }
+  .abp-press .press-row img[alt="Seattle Seahawks"] { height: 38px; }
+  .abp-press .press-row img[alt="iHeartMedia"] { height: 40px; }
+  .abp-press .press-row img[alt="City of Seattle"] { height: 42px; }
+  .abp-press .press-row img[alt="Jack Daniel's"] { height: 44px; }
+
+  /* ---- CTA ---- */
+  .abp-cta { background: var(--clay); color: var(--paper); text-align: center; }
+  .abp-cta .eyebrow { justify-content: center; color: oklch(0.96 0.02 60); }
+  .abp-cta .eyebrow::before { background: oklch(0.96 0.02 60); }
+  .abp-cta h2 { color: var(--paper); font-size: clamp(28px, 3.6vw, 48px); margin: 18px auto 26px; max-width: 18ch; }
+  .abp-cta .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .abp-cta .btn-primary { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .abp-cta .btn-ghost { border-color: oklch(0.96 0.02 60 / 0.5); color: var(--paper); }
+
+  @media (max-width: 760px) {
+    .abp-prose { grid-template-columns: 1fr; gap: 10px; }
+    .abp-kicker { margin-bottom: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Utility bar ===== -->
+<div class="utility">
+  <div class="wrap">
+    <span class="dot"></span>
+    <span class="msg">New story every week — reels, articles &amp; TV-ready features from your neighborhood</span>
+    <a href="index.html#newsletter">Get it in your inbox →</a>
+  </div>
+</div>
+
+<!-- ===== Nav ===== -->
+<header class="nav scrolled" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Besa Gordon Media home">
+      <span class="mark">B</span>
+      <span class="word">
+        <b>Besa Gordon Media</b>
+        <span>Local Stories</span>
+      </span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#top">Home</a>
+      <a href="About%20BGM.html" class="active" aria-current="page">About BGM</a>
+      <a href="Work%20with%20BGM.html">Work with BGM</a>
+      <a href="index.html#local">Business Spotlights</a>
+      <a href="Contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="nav-social" aria-label="Besa Gordon Media on social">
+        <a href="https://www.tiktok.com/@besagordon" target="_blank" rel="noopener" aria-label="TikTok"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 5.5a4.6 4.6 0 0 1-1-.1V14a4.7 4.7 0 1 1-4.7-4.7c.2 0 .3 0 .5.1v2.4a2.3 2.3 0 1 0 1.6 2.2V2h2.2a4.6 4.6 0 0 0 4 4.5z"/></svg></a>
+        <a href="https://www.instagram.com/besagordon/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.facebook.com/ItsBesaGordon" target="_blank" rel="noopener" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+        <a href="https://www.linkedin.com/in/besa-gordon/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.08 1.4-2.08 2.85V21H9z"/></svg></a>
+      </div>
+      <a href="Work%20with%20BGM.html" class="btn btn-primary">Let's tell your story</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== Hero ===== -->
+<section class="about about-c abp-hero" id="top">
+  <div class="wrap">
+    <div class="c-grid">
+      <div class="c-card reveal">
+        <img src="assets/img/besa-portrait.jpg" alt="Besa Gordon, founder of Besa Gordon Media" />
+        <div class="c-plate">
+          <b>Besa Gordon</b>
+          <span>Founder · Besa Gordon Media</span>
+          <div class="c-social">
+            <a href="https://www.tiktok.com/@besagordon" target="_blank" rel="noopener" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 5.5a4.6 4.6 0 0 1-1-.1V14a4.7 4.7 0 1 1-4.7-4.7c.2 0 .3 0 .5.1v2.4a2.3 2.3 0 1 0 1.6 2.2V2h2.2a4.6 4.6 0 0 0 4 4.5z"/></svg></a>
+            <a href="https://www.instagram.com/besagordon/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor"/></svg></a>
+            <a href="https://www.facebook.com/ItsBesaGordon" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+            <a href="https://www.linkedin.com/in/besa-gordon/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.08 1.4-2.08 2.85V21H9z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="c-body reveal">
+        <a href="index.html" class="abp-crumb">← Back to home</a>
+        <span class="eyebrow">About BGM</span>
+        <h1 class="mission">Turning audiences into advocates through authentic storytelling.</h1>
+        <p class="c-lead">
+          Besa Gordon Media (BGM) is a storytelling and community engagement agency that helps
+          organizations build trust, increase visibility, and create meaningful connections.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Story ===== -->
+<section class="abp-story">
+  <div class="wrap">
+    <div class="abp-prose reveal">
+      <h2 class="abp-kicker">The agency</h2>
+      <div class="abp-body">
+        <p>
+          Founded by media personality and longtime storyteller Besa Gordon, BGM brings more than
+          a decade of experience across television, radio, digital media, live events, partnership
+          development, and community engagement.
+        </p>
+        <p>
+          Through strategic content creation, video production, social media campaigns, creator
+          partnerships, event hosting, and community-focused initiatives, BGM helps organizations
+          share their stories in ways that resonate with the people they serve.
+        </p>
+      </div>
+    </div>
+
+    <div class="abp-prose reveal">
+      <h2 class="abp-kicker">The founder</h2>
+      <div class="abp-body">
+        <p>
+          Besa is best known as the former host of <strong>Back2Besa on FOX 13 Seattle</strong>,
+          where she spent years highlighting businesses, nonprofits, cultural institutions,
+          community leaders, and events throughout the Pacific Northwest.
+        </p>
+        <p>
+          That experience shaped BGM's approach: finding the stories that matter and telling them in
+          a way that feels relatable, engaging, and impactful.
+        </p>
+      </div>
+    </div>
+
+    <div class="abp-prose reveal">
+      <h2 class="abp-kicker">Who we work with</h2>
+      <div class="abp-body">
+        <p>
+          BGM has worked with professional sports organizations, arts and cultural institutions,
+          nonprofits, local businesses, government agencies, and community leaders — creating
+          campaigns and experiences that strengthen relationships and foster genuine community
+          connection.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Pull quote ===== -->
+<section class="abp-quote-band">
+  <div class="wrap">
+    <blockquote class="abp-quote reveal">
+      People support what they understand, trust, and feel <span class="accent">connected to</span>.
+    </blockquote>
+    <div class="abp-quote-by reveal">The belief at the core of BGM</div>
+  </div>
+</section>
+
+<!-- ===== Capabilities ===== -->
+<section class="abp-caps">
+  <div class="wrap">
+    <div class="caps-head reveal">
+      <span class="eyebrow">What we do</span>
+      <h2>Strategy, story &amp; engagement — end to end.</h2>
+    </div>
+    <div class="abp-chip-row reveal">
+      <span class="abp-chip">Content Creation</span>
+      <span class="abp-chip">Video Production</span>
+      <span class="abp-chip">Social Media Campaigns</span>
+      <span class="abp-chip">Creator Partnerships</span>
+      <span class="abp-chip">Event Hosting</span>
+      <span class="abp-chip">Live Events</span>
+      <span class="abp-chip">Partnership Development</span>
+      <span class="abp-chip">Community Engagement</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Press ===== -->
+<section class="abp-press">
+  <div class="wrap">
+    <div class="press-inner reveal">
+      <p class="press-label">As seen on &amp; trusted by</p>
+      <div class="press-row">
+        <img src="assets/logos/fox13.png" alt="FOX 13" />
+        <img src="assets/logos/iheartmedia.png" alt="iHeartMedia" />
+        <img src="assets/logos/pnb.png" alt="Pacific Northwest Ballet" />
+        <img src="assets/logos/mariners.png" alt="Seattle Mariners" />
+        <img src="assets/logos/seahawks.png" alt="Seattle Seahawks" />
+        <img src="assets/logos/jackdaniels.png" alt="Jack Daniel's" />
+        <img src="assets/logos/cityofseattle.png" alt="City of Seattle" />
+        <img src="assets/logos/kingcountymetro.png" alt="King County Metro" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="abp-cta">
+  <div class="wrap">
+    <span class="eyebrow">Let's work together</span>
+    <h2>Your organization has a story. Let's make people feel it.</h2>
+    <div class="cta-actions">
+      <a href="Work%20with%20BGM.html" class="btn btn-primary">Work with BGM</a>
+      <a href="index.html#reels" class="btn btn-ghost">See the work</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a class="brand" href="index.html">
+          <span class="mark">B</span>
+          <span class="word"><b>Besa Gordon Media</b><span>Local Stories</span></span>
+        </a>
+        <p class="foot-blurb">A storytelling &amp; community media company connecting people to the businesses, resources, events, and opportunities right around them.</p>
+        <div class="foot-social">
+          <a href="https://www.tiktok.com/@besagordon" target="_blank" rel="noopener" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 5.5a4.6 4.6 0 0 1-1-.1V14a4.7 4.7 0 1 1-4.7-4.7c.2 0 .3 0 .5.1v2.4a2.3 2.3 0 1 0 1.6 2.2V2h2.2a4.6 4.6 0 0 0 4 4.5z"/></svg></a>
+          <a href="https://www.instagram.com/besagordon/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/ItsBesaGordon" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="https://www.linkedin.com/in/besa-gordon/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.08 1.4-2.08 2.85V21H9z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Stories</h4>
+        <ul>
+          <li><a href="index.html#reels">Reels</a></li>
+          <li><a href="index.html#reels">Articles</a></li>
+          <li><a href="index.html#reels">TV-ready</a></li>
+          <li><a href="index.html#reels">Archive</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Local</h4>
+        <ul>
+          <li><a href="index.html#local">Spotlights</a></li>
+          <li><a href="index.html#local">Resources</a></li>
+          <li><a href="index.html#local">Opportunities</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="About%20BGM.html">About BGM</a></li>
+          <li><a href="Work%20with%20BGM.html">Work with me</a></li>
+          <li><a href="index.html#newsletter">Newsletter</a></li>
+          <li><a href="Contact.html">Pitch a story</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Besa Gordon Media · All rights reserved</span>
+      <span class="made">Made on the ground, with a <span class="heart">♥</span> for the neighborhood</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var nav = document.getElementById('nav');
+  var navToggle = document.getElementById('navToggle');
+  if (navToggle) {
+    navToggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.querySelectorAll('#navLinks a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        nav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+  var revealEls = document.querySelectorAll('.reveal');
+  function showAll() { revealEls.forEach(function (el) { el.classList.add('in'); }); }
+  if (document.documentElement.classList.contains('reveals-armed') && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+    setTimeout(showAll, 1800);
+  } else {
+    showAll();
+  }
+})();
+</script>
+</body>
+</html>

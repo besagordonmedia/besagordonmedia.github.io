@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Work with BGM — Besa Gordon Media</title>
+<meta name="description" content="Start a project with Besa Gordon Media. Tell us what you need, the services you're interested in, and your budget — and we'll be in touch." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script>
+  (function () {
+    try {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce) document.documentElement.classList.add('reveals-armed');
+    } catch (e) {}
+  })();
+</script>
+<style>
+  /* ---- Hero ---- */
+  .wbg-hero { background: var(--paper); border-bottom: 1px solid var(--line); padding-block: clamp(48px, 7vw, 96px); }
+  .wbg-hero .wrap { max-width: 1000px; }
+  .wbg-crumb { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; color: var(--muted); text-decoration: none; margin-bottom: 22px; transition: color .2s ease; }
+  .wbg-crumb:hover { color: var(--clay); }
+  .wbg-hero h1 { font-size: clamp(34px, 5vw, 60px); letter-spacing: -0.02em; margin: 14px 0 20px; max-width: 16ch; }
+  .wbg-hero h1 em { font-family: var(--serif); font-style: italic; color: var(--clay); font-weight: 500; }
+  .wbg-hero .lead { font-size: 19px; color: var(--ink-soft); max-width: 56ch; line-height: 1.55; }
+
+  /* ---- Layout ---- */
+  .wbg-main { background: var(--cream); }
+  .wbg-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(36px, 5vw, 72px); align-items: start; max-width: 1100px; margin-inline: auto; }
+
+  /* ---- Aside ---- */
+  .wbg-aside { position: sticky; top: 96px; }
+  .wbg-aside h2 { font-size: 24px; margin: 0 0 20px; }
+  .wbg-steps { list-style: none; margin: 0 0 32px; padding: 0; display: flex; flex-direction: column; gap: 20px; }
+  .wbg-steps li { display: flex; gap: 14px; align-items: flex-start; }
+  .wbg-steps .s-n { width: 30px; height: 30px; border-radius: 50%; background: var(--clay-tint); color: var(--clay-deep); font-family: var(--mono); font-size: 12px; display: grid; place-items: center; flex-shrink: 0; }
+  .wbg-steps b { display: block; font-size: 16px; color: var(--ink); margin-bottom: 3px; }
+  .wbg-steps p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; margin: 0; }
+  .wbg-direct { border-top: 1px solid var(--line); padding-top: 24px; }
+  .wbg-direct .lbl { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+  .wbg-direct a { color: var(--clay); font-size: 17px; text-decoration: none; font-weight: 500; }
+  .wbg-direct a:hover { color: var(--clay-deep); }
+
+  /* ---- Form card ---- */
+  .wbg-form { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(24px, 3.5vw, 44px); box-shadow: 0 30px 60px -40px oklch(0.2 0.02 60 / 0.35); }
+  .wbg-form .grp { margin-bottom: 30px; }
+  .wbg-form .grp:last-of-type { margin-bottom: 0; }
+  .wbg-glabel { display: block; font-family: var(--sans); font-weight: 600; font-size: 15px; color: var(--ink); margin-bottom: 4px; }
+  .wbg-ghint { font-size: 13px; color: var(--muted); margin: 0 0 14px; }
+  .wbg-req { color: var(--clay); }
+
+  .wbg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .wbg-field { display: flex; flex-direction: column; }
+  .wbg-field label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 7px; }
+  .wbg-form input[type="text"],
+  .wbg-form input[type="email"],
+  .wbg-form input[type="tel"],
+  .wbg-form select,
+  .wbg-form textarea {
+    width: 100%; font-family: var(--sans); font-size: 15px; color: var(--ink);
+    background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius-sm);
+    padding: 12px 14px; transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .wbg-form textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+  .wbg-form input:focus, .wbg-form select:focus, .wbg-form textarea:focus {
+    outline: none; border-color: var(--clay); box-shadow: 0 0 0 3px oklch(0.44 0.097 40 / 0.12);
+  }
+  .wbg-form input.invalid, .wbg-form textarea.invalid { border-color: oklch(0.55 0.2 25); box-shadow: 0 0 0 3px oklch(0.55 0.2 25 / 0.12); }
+
+  /* service chips */
+  .wbg-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .wbg-chip { position: relative; cursor: pointer; display: inline-flex; }
+  .wbg-chip input { position: absolute; opacity: 0; pointer-events: none; }
+  .wbg-chip span { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; font-size: 14.5px; color: var(--ink); background: var(--cream); border: 1px solid var(--line); border-radius: 100px; padding: 9px 16px; transition: background .15s ease, border-color .15s ease, color .15s ease; }
+  .wbg-chip span .tick { width: 14px; height: 14px; opacity: 0; transition: opacity .15s ease; margin-left: -2px; }
+  .wbg-chip:hover span { border-color: var(--clay); }
+  .wbg-chip.sel span { background: var(--clay-tint); border-color: var(--clay); color: var(--clay-deep); }
+  .wbg-chip.sel span .tick { opacity: 1; }
+
+  /* budget radios */
+  .wbg-budget { display: flex; flex-wrap: wrap; gap: 10px; }
+  .wbg-radio { cursor: pointer; display: inline-flex; }
+  .wbg-radio input { position: absolute; opacity: 0; pointer-events: none; }
+  .wbg-radio span { display: inline-flex; align-items: center; white-space: nowrap; font-size: 14.5px; color: var(--ink); background: var(--cream); border: 1px solid var(--line); border-radius: 100px; padding: 9px 18px; transition: background .15s ease, border-color .15s ease, color .15s ease; }
+  .wbg-radio:hover span { border-color: var(--clay); }
+  .wbg-radio.sel span { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+
+  /* other reveal */
+  .wbg-other { overflow: hidden; transition: max-height .25s ease, opacity .2s ease, margin-top .2s ease; }
+
+  .wbg-err { font-size: 12.5px; color: oklch(0.5 0.2 25); margin-top: 7px; min-height: 15px; }
+  .wbg-submit { width: 100%; justify-content: center; padding-block: 15px; font-size: 16px; margin-top: 4px; }
+  .wbg-submit[disabled] { opacity: 0.6; pointer-events: none; }
+  .wbg-status { font-size: 13.5px; text-align: center; margin-top: 12px; min-height: 16px; }
+  .wbg-status.err { color: oklch(0.5 0.2 25); }
+  .wbg-fineprint { font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: center; margin-top: 14px; letter-spacing: 0.01em; }
+
+  /* success */
+  .wbg-form.done { text-align: center; padding-block: 60px; }
+  .wbg-success-mark { width: 64px; height: 64px; border-radius: 50%; background: var(--clay-tint); color: var(--clay-deep); display: grid; place-items: center; margin: 0 auto 20px; }
+  .wbg-form.done h3 { font-size: 28px; margin-bottom: 12px; }
+  .wbg-form.done p { color: var(--ink-soft); font-size: 16px; max-width: 42ch; margin: 0 auto 8px; }
+
+  @media (max-width: 900px) {
+    .wbg-grid { grid-template-columns: 1fr; gap: 36px; }
+    .wbg-aside { position: static; }
+  }
+  @media (max-width: 520px) {
+    .wbg-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Utility bar ===== -->
+<div class="utility">
+  <div class="wrap">
+    <span class="dot"></span>
+    <span class="msg">New story every week — reels, articles &amp; TV-ready features from your neighborhood</span>
+    <a href="index.html#newsletter">Get it in your inbox →</a>
+  </div>
+</div>
+
+<!-- ===== Nav ===== -->
+<header class="nav scrolled" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Besa Gordon Media home">
+      <span class="mark">B</span>
+      <span class="word">
+        <b>Besa Gordon Media</b>
+        <span>Local Stories</span>
+      </span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#top">Home</a>
+      <a href="About%20BGM.html">About BGM</a>
+      <a href="Work%20with%20BGM.html" class="active" aria-current="page">Work with BGM</a>
+      <a href="index.html#local">Business Spotlights</a>
+      <a href="Contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="nav-social" aria-label="Besa Gordon Media on social">
+        <a href="https://www.tiktok.com/@besagordon" target="_blank" rel="noopener" aria-label="TikTok"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 5.5a4.6 4.6 0 0 1-1-.1V14a4.7 4.7 0 1 1-4.7-4.7c.2 0 .3 0 .5.1v2.4a2.3 2.3 0 1 0 1.6 2.2V2h2.2a4.6 4.6 0 0 0 4 4.5z"/></svg></a>
+        <a href="https://www.instagram.com/besagordon/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.facebook.com/ItsBesaGordon" target="_blank" rel="noopener" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+        <a href="https://www.linkedin.com/in/besa-gordon/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.08 1.4-2.08 2.85V21H9z"/></svg></a>
+      </div>
+      <a href="#start" class="btn btn-primary">Start a project</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== Hero ===== -->
+<section class="wbg-hero" id="top">
+  <div class="wrap">
+    <a href="index.html" class="wbg-crumb">← Back to home</a>
+    <span class="eyebrow">Work with BGM</span>
+    <h1>Your story, told so people <em>feel</em> it.</h1>
+    <p class="lead">
+      Besa Gordon Media partners with businesses, nonprofits, cultural institutions, and
+      community organizations to create storytelling that builds trust and turns audiences
+      into advocates. Tell us what you need below — and let's make something worth talking about.
+    </p>
+  </div>
+</section>
+
+<!-- ===== Form ===== -->
+<section class="wbg-main" id="start">
+  <div class="wrap">
+    <div class="wbg-grid">
+
+      <!-- Aside -->
+      <aside class="wbg-aside reveal">
+        <h2>How it works</h2>
+        <ol class="wbg-steps">
+          <li><span class="s-n">1</span><div><b>Tell us about it</b><p>Share your goals, the services you're eyeing, and your budget.</p></div></li>
+          <li><span class="s-n">2</span><div><b>We'll reach out</b><p>The BGM team follows up within 2–3 business days to talk it through.</p></div></li>
+          <li><span class="s-n">3</span><div><b>We make a plan</b><p>You get a tailored proposal — scope, timeline, and pricing, no guesswork.</p></div></li>
+        </ol>
+        <div class="wbg-direct">
+          <p class="lbl">Prefer email?</p>
+          <a href="mailto:besajanaygordon@gmail.com">besajanaygordon@gmail.com</a>
+        </div>
+      </aside>
+
+      <!-- Form -->
+      <form class="wbg-form reveal" id="projectForm" novalidate>
+        <div id="formInner">
+
+          <div class="grp">
+            <div class="wbg-row">
+              <div class="wbg-field">
+                <label for="name">Your name <span class="wbg-req">*</span></label>
+                <input type="text" id="name" name="name" autocomplete="name" />
+              </div>
+              <div class="wbg-field">
+                <label for="org">Organization / business</label>
+                <input type="text" id="org" name="org" autocomplete="organization" />
+              </div>
+            </div>
+            <div class="wbg-err" id="nameErr"></div>
+          </div>
+
+          <div class="grp">
+            <div class="wbg-row">
+              <div class="wbg-field">
+                <label for="email">Email <span class="wbg-req">*</span></label>
+                <input type="email" id="email" name="email" autocomplete="email" />
+              </div>
+              <div class="wbg-field">
+                <label for="phone">Phone <span style="text-transform:none;letter-spacing:0;">(optional)</span></label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" />
+              </div>
+            </div>
+            <div class="wbg-err" id="emailErr"></div>
+          </div>
+
+          <div class="grp">
+            <span class="wbg-glabel">What do you need? <span class="wbg-req">*</span></span>
+            <p class="wbg-ghint">Pick all that apply — or add your own.</p>
+            <div class="wbg-chips" id="serviceChips">
+              <label class="wbg-chip"><input type="checkbox" name="services" value="Reels & Social" /><span>Reels &amp; Social</span></label>
+              <label class="wbg-chip"><input type="checkbox" name="services" value="The Local Feature" /><span>The Local Feature</span></label>
+              <label class="wbg-chip"><input type="checkbox" name="services" value="TV-Ready Segments" /><span>TV-Ready Segments</span></label>
+              <label class="wbg-chip"><input type="checkbox" name="services" value="Event Hosting" /><span>Event Hosting</span></label>
+              <label class="wbg-chip"><input type="checkbox" name="services" value="Voiceovers" /><span>Voiceovers</span></label>
+              <label class="wbg-chip"><input type="checkbox" name="services" value="Content Creation" /><span>Content Creation</span></label>
+              <label class="wbg-chip"><input type="checkbox" name="services" value="Keynote Speaking" /><span>Keynote Speaking</span></label>
+              <label class="wbg-chip"><input type="checkbox" name="services" value="Social Media Consulting" /><span>Social Media Consulting</span></label>
+              <label class="wbg-chip"><input type="checkbox" name="services" value="Other" id="otherToggle" /><span>Something else</span></label>
+            </div>
+            <div class="wbg-other" id="otherWrap" style="max-height:0;opacity:0;margin-top:0;">
+              <input type="text" id="otherText" name="otherText" placeholder="Tell us what you have in mind…" />
+            </div>
+            <div class="wbg-err" id="servicesErr"></div>
+          </div>
+
+          <div class="grp">
+            <span class="wbg-glabel">Do you have a budget in mind?</span>
+            <p class="wbg-ghint">A range is fine — it helps us tailor the right scope.</p>
+            <div class="wbg-budget" id="budgetGroup">
+              <label class="wbg-radio"><input type="radio" name="budget" value="Under $1,000" /><span>Under $1,000</span></label>
+              <label class="wbg-radio"><input type="radio" name="budget" value="$1,000–$3,000" /><span>$1,000–$3,000</span></label>
+              <label class="wbg-radio"><input type="radio" name="budget" value="$3,000–$7,500" /><span>$3,000–$7,500</span></label>
+              <label class="wbg-radio"><input type="radio" name="budget" value="$7,500+" /><span>$7,500+</span></label>
+              <label class="wbg-radio"><input type="radio" name="budget" value="Not sure yet" /><span>Not sure yet</span></label>
+            </div>
+          </div>
+
+          <div class="grp">
+            <div class="wbg-field">
+              <label for="timeline" style="font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--ink);margin-bottom:8px;">When do you need it?</label>
+              <select id="timeline" name="timeline">
+                <option value="">Select a timeline…</option>
+                <option value="ASAP">As soon as possible</option>
+                <option value="Within 1 month">Within 1 month</option>
+                <option value="1–3 months">1–3 months</option>
+                <option value="Just exploring">Just exploring for now</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grp">
+            <label class="wbg-glabel" for="details">Tell us about your project <span class="wbg-req">*</span></label>
+            <p class="wbg-ghint">What's the story, who's it for, and what would success look like?</p>
+            <textarea id="details" name="details" placeholder="We're a neighborhood bakery celebrating 10 years and want a reel that brings people in…"></textarea>
+            <div class="wbg-err" id="detailsErr"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary wbg-submit">Send project request <span class="btn-arrow">→</span></button>
+          <p class="wbg-status" id="formStatus" role="status" aria-live="polite"></p>
+          <p class="wbg-fineprint">No spam, ever. Your details go straight to the BGM team.</p>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a class="brand" href="index.html">
+          <span class="mark">B</span>
+          <span class="word"><b>Besa Gordon Media</b><span>Local Stories</span></span>
+        </a>
+        <p class="foot-blurb">A storytelling &amp; community media company connecting people to the businesses, resources, events, and opportunities right around them.</p>
+        <div class="foot-social">
+          <a href="https://www.tiktok.com/@besagordon" target="_blank" rel="noopener" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 5.5a4.6 4.6 0 0 1-1-.1V14a4.7 4.7 0 1 1-4.7-4.7c.2 0 .3 0 .5.1v2.4a2.3 2.3 0 1 0 1.6 2.2V2h2.2a4.6 4.6 0 0 0 4 4.5z"/></svg></a>
+          <a href="https://www.instagram.com/besagordon/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/ItsBesaGordon" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="https://www.linkedin.com/in/besa-gordon/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.08 1.4-2.08 2.85V21H9z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Stories</h4>
+        <ul>
+          <li><a href="index.html#reels">Reels</a></li>
+          <li><a href="index.html#reels">Articles</a></li>
+          <li><a href="index.html#reels">TV-ready</a></li>
+          <li><a href="index.html#reels">Archive</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Local</h4>
+        <ul>
+          <li><a href="index.html#local">Spotlights</a></li>
+          <li><a href="index.html#local">Resources</a></li>
+          <li><a href="index.html#local">Opportunities</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="About%20BGM.html">About BGM</a></li>
+          <li><a href="Work%20with%20BGM.html">Work with BGM</a></li>
+          <li><a href="index.html#newsletter">Newsletter</a></li>
+          <li><a href="Contact.html">Pitch a story</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Besa Gordon Media · All rights reserved</span>
+      <span class="made">Made on the ground, with a <span class="heart">♥</span> for the neighborhood</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* =====================================================================
+     FORM DELIVERY — paste your Formspree form ID below to go live.
+     1. Sign up free at https://formspree.io  (use besajanaygordon@gmail.com)
+     2. Create a new form; copy its endpoint, e.g. https://formspree.io/f/abcdwxyz
+     3. Replace the URL below with that endpoint.
+     Until then, the form validates and shows a success message but does
+     not send anywhere.
+     ===================================================================== */
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/mzdqjrzb';
+  var nav = document.getElementById('nav');
+  var navToggle = document.getElementById('navToggle');
+  if (navToggle) {
+    navToggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.querySelectorAll('#navLinks a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        nav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  /* reveal */
+  var revealEls = document.querySelectorAll('.reveal');
+  function showAll() { revealEls.forEach(function (el) { el.classList.add('in'); }); }
+  if (document.documentElement.classList.contains('reveals-armed') && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+    setTimeout(showAll, 1800);
+  } else { showAll(); }
+
+  /* "Something else" reveal (inline styles — robust across engines) */
+  var otherToggle = document.getElementById('otherToggle');
+  var otherWrap = document.getElementById('otherWrap');
+  var otherText = document.getElementById('otherText');
+  otherToggle.addEventListener('change', function () {
+    if (otherToggle.checked) {
+      otherWrap.style.maxHeight = '90px';
+      otherWrap.style.opacity = '1';
+      otherWrap.style.marginTop = '12px';
+      otherText.focus();
+    } else {
+      otherWrap.style.maxHeight = '0';
+      otherWrap.style.opacity = '0';
+      otherWrap.style.marginTop = '0';
+      otherText.value = '';
+    }
+  });
+
+  /* Selected-state styling via inline styles (avoids :has / compound-class
+     cascade quirks seen in some embedded webviews) */
+  function paintChip(input) {
+    var span = input.parentElement.querySelector('span');
+    if (input.checked) {
+      span.style.background = 'var(--clay-tint)';
+      span.style.borderColor = 'var(--clay)';
+      span.style.color = 'var(--clay-deep)';
+    } else {
+      span.style.background = '';
+      span.style.borderColor = '';
+      span.style.color = '';
+    }
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="services"]'), function (input) {
+    input.addEventListener('change', function () { paintChip(input); });
+  });
+
+  function paintBudget() {
+    Array.prototype.forEach.call(document.querySelectorAll('input[name="budget"]'), function (input) {
+      var span = input.parentElement.querySelector('span');
+      if (input.checked) {
+        span.style.background = 'var(--ink)';
+        span.style.borderColor = 'var(--ink)';
+        span.style.color = 'var(--cream)';
+      } else {
+        span.style.background = '';
+        span.style.borderColor = '';
+        span.style.color = '';
+      }
+    });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="budget"]'), function (input) {
+    input.addEventListener('change', paintBudget);
+  });
+
+  /* validation + submit */
+  var form = document.getElementById('projectForm');
+  var name = document.getElementById('name');
+  var email = document.getElementById('email');
+  var details = document.getElementById('details');
+  var nameErr = document.getElementById('nameErr');
+  var emailErr = document.getElementById('emailErr');
+  var servicesErr = document.getElementById('servicesErr');
+  var detailsErr = document.getElementById('detailsErr');
+
+  function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  function selectedServices() {
+    return Array.prototype.slice.call(document.querySelectorAll('input[name="services"]:checked'));
+  }
+
+  [name, email, details].forEach(function (el) {
+    el.addEventListener('input', function () {
+      if (el.classList.contains('invalid')) {
+        el.classList.remove('invalid');
+        var e = document.getElementById(el.id + 'Err');
+        if (e) e.textContent = '';
+      }
+    });
+  });
+  document.getElementById('serviceChips').addEventListener('change', function () {
+    if (selectedServices().length) servicesErr.textContent = '';
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var ok = true;
+    if (!name.value.trim()) { name.classList.add('invalid'); nameErr.textContent = 'Please add your name.'; ok = false; }
+    if (!validEmail(email.value.trim())) { email.classList.add('invalid'); emailErr.textContent = email.value.trim() ? 'That email doesn\u2019t look right.' : 'We need an email to reach you.'; ok = false; }
+    if (!selectedServices().length) { servicesErr.textContent = 'Pick at least one service (or “Something else”).'; ok = false; }
+    if (!details.value.trim()) { details.classList.add('invalid'); detailsErr.textContent = 'Tell us a little about the project.'; ok = false; }
+    if (!ok) {
+      var firstBad = form.querySelector('.invalid') || document.getElementById('serviceChips');
+      if (firstBad && firstBad.focus) firstBad.focus();
+      return;
+    }
+
+    /* ---- Build payload ---- */
+    var services = selectedServices().map(function (c) { return c.value; });
+    var otherVal = document.getElementById('otherText').value.trim();
+    if (services.indexOf('Other') !== -1 && otherVal) {
+      services = services.map(function (s) { return s === 'Other' ? 'Other: ' + otherVal : s; });
+    }
+    var budgetEl = document.querySelector('input[name="budget"]:checked');
+    var payload = {
+      name: name.value.trim(),
+      email: email.value.trim(),
+      organization: document.getElementById('org').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      services: services.join(', '),
+      budget: budgetEl ? budgetEl.value : 'Not specified',
+      timeline: document.getElementById('timeline').value || 'Not specified',
+      details: details.value.trim(),
+      _subject: 'New project request — ' + name.value.trim()
+    };
+
+    var status = document.getElementById('formStatus');
+    var submitBtn = form.querySelector('.wbg-submit');
+    status.className = 'wbg-status';
+    status.textContent = '';
+
+    function showSuccess() {
+      var who = escapeHtml(name.value.trim().split(' ')[0] || 'there');
+      document.getElementById('formInner').innerHTML =
+        '<div class="wbg-success-mark">' +
+        '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>' +
+        '</div>' +
+        '<h3>Thanks, ' + who + ' — request received.</h3>' +
+        '<p>We\u2019ve got your project details. Besa or the BGM team will be in touch within 2\u20133 business days.</p>' +
+        '<p style="font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:18px;">In a hurry? Email besajanaygordon@gmail.com</p>';
+      form.classList.add('done');
+    }
+
+    /* If the form endpoint hasn't been configured yet, just show success
+       (so the page works) without attempting a network call. */
+    if (FORMSPREE_ENDPOINT.indexOf('YOUR_FORM_ID') !== -1) {
+      showSuccess();
+      return;
+    }
+
+    submitBtn.setAttribute('disabled', 'true');
+    submitBtn.innerHTML = 'Sending…';
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      if (res.ok) { showSuccess(); }
+      else { throw new Error('Request failed'); }
+    }).catch(function () {
+      submitBtn.removeAttribute('disabled');
+      submitBtn.innerHTML = 'Send project request <span class="btn-arrow">→</span>';
+      status.className = 'wbg-status err';
+      status.textContent = 'Something went wrong sending your request. Please email besajanaygordon@gmail.com instead.';
+    });
+  });
+
+  function escapeHtml(s) {
+    return s.replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+})();
+</script>
+</body>
+</html>
